@@ -71,17 +71,17 @@ for letter_value in letter_values:
 	letter = Letter_elements()
 	Letter_elements._init_(letter)
 	for element in letter_value:
-		if element.tag == 'Letter':
-			Letter_elements.set_letter(letter, element.text)
+            if element.tag == 'Letter':
+                    Letter_elements.set_letter(letter, element.text)
 
-		if element.tag == 'ValueDutch':
-			Letter_elements.set_value(letter, "Dutch", element.text)
+            if element.tag == 'ValueDutch':
+                    Letter_elements.set_value(letter, "Dutch", element.text)
 
-		if element.tag == 'ValueGerman':
-			Letter_elements.set_value(letter, "German", element.text)
+            if element.tag == 'ValueGerman':
+                    Letter_elements.set_value(letter, "German", element.text)
 
-        if element.tag == 'ValueSpanish':
-        	Letter_elements.set_value(letter, "Spanish", element.text)
+            if element.tag == 'ValueSpanish':
+                    Letter_elements.set_value(letter, "Spanish", element.text)
 
 	letter_value_table.append(letter)
 

@@ -28,17 +28,32 @@ except ImportError:
  
 """
 
+def get_three(translations):
+    trans = []
+    i = 0
+    for t in translations:
+        i+=1
+        trans.append(t)
+        if(i==3):
+            break
+    return trans
+
 
 queue = algorithm.q
 tempQueue = Q.PriorityQueue()
 root = ET.Element("Words")
 for i in range (0, queue.qsize()):
     w = queue.get()
+    temp_translations = get_three(w[1].translations)
+    if(len(temp_translations)!=3):
+        continue
     doc = ET.SubElement(root, "Word")
     ET.SubElement(doc,"Language").text = w[1].language
     ET.SubElement(doc,"Word").text = w[1].original_word
-    for translation in range(0, len(w[1].translations)):
-        ET.SubElement(doc,"Translation").text = w[1].translations[translation]
+    for translation in range(0, len(temp_translations)):
+        print(temp_translations[translation])
+        ET.SubElement(doc,"Translation").text = temp_translations[translation]
+    print (" ")
     ET.SubElement(doc,"WordValue").text = str(w[1].word_value)
     ET.SubElement(doc,"Category").text = w[1].category
     ET.SubElement(doc,"Word_Difficulty").text = w[1].word_frequency

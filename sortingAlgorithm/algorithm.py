@@ -63,7 +63,7 @@ def letter_frequency(original_word, language):
     for letter in original_word:
         for letter_value in range(0, len(letter_value_table)):
             value = wordValueTable.Letter_elements.get_value(letter_value_table[letter_value], language, letter)
-            if value > 0 :
+            if float(value) > 0 :
                 frequency_value += float(value)
                 break
 

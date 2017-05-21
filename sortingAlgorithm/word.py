@@ -75,12 +75,17 @@ class Word(object):
 
     def set_progress(self, progress):
         self.progress = progress
+        
+    def __lt__(self, other):
+        selfPriority = self.word_value
+        otherPriority = other.word_value
+        return selfPriority < otherPriority
 
     
 # initialization of the array that will contain the word objects
 words = []
 #XML parsing to fill the word objects and fill words
-tree = ET.parse('spanishWords.xml');
+tree = ET.parse('TranslatedSpanishWords.xml');
 words_xml = tree.getroot()
 
 for word_elements in words_xml:
